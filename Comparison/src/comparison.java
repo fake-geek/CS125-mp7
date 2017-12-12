@@ -4,17 +4,22 @@ public class comparison {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] arr = create(200);
+		Sort.bubbleSort(arr);
+		printNumbers(arr);
+	}
+	
+	private static void printNumbers(final int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
-		
 	}
 	
-	private static int[] create(final int len){
+	private static int[] create(final int len) {
 		if (len >= 0) {
 			int[] arr = new int[len];
 			for (int i = 0; i < arr.length; i++) {
 				arr[i] = (int) (Math.random()*1000000);
+				//arr[i] = 5;
 			}
 			checkOrder(arr);
 			return arr;
@@ -22,7 +27,7 @@ public class comparison {
 		return null;
 	}
 	
-	private static int[] checkOrder(final int[] arr){
+	private static int[] checkOrder(final int[] arr) {
 		for (int i = 0; i <= arr.length; i++) {
 			for (int j = i + 1; j <= arr.length - 1 ; j++) {
 				if(arr[i] == arr[j]) {
@@ -33,4 +38,5 @@ public class comparison {
 		}
 		return arr;
 	}
+	
 }

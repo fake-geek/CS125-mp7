@@ -3,25 +3,31 @@ public class comparison {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr = create(200);
-		//Sort.bubbleSort(arr);
-		//Sort.selectionSort(arr);
-		Sort.insertionSort(arr);
-		printNumbers(arr);
+		final int[] arr = create(10000);
+		if (checkMySort(arr) == false) {
+			System.out.print("Check your algorithm!");
+		} else {
+			Sort.setTime(arr, Sort.array);
+			Sort.sortTimeSequence(Sort.array);
+			Sort.printTimeSequence(Sort.array);
+		}
 	}
 	
-	private static void printNumbers(final int[] arr) {
-		for (int i = 0; i < arr.length; i++) {
-			System.out.println(arr[i]);
+	private static boolean checkMySort(final int[] arr) {
+		MySort.mySort(arr);
+		for (int i = 0; i <= arr.length - 2; i++) {
+			if (arr[i] > arr[i + 1]) {
+				return false;
+			}
 		}
+		return true;
 	}
 	
 	private static int[] create(final int len) {
 		if (len >= 0) {
 			int[] arr = new int[len];
 			for (int i = 0; i < arr.length; i++) {
-				arr[i] = (int) (Math.random()*1000000);
-				//arr[i] = 5;
+				arr[i] = (int) (Math.random()*100000000);
 			}
 			checkOrder(arr);
 			return arr;
@@ -33,7 +39,7 @@ public class comparison {
 		for (int i = 0; i <= arr.length; i++) {
 			for (int j = i + 1; j <= arr.length - 1 ; j++) {
 				if(arr[i] == arr[j]) {
-					arr[j] = (int) (Math.random()*1000000);
+					arr[j] = (int) (Math.random()*100000000);
 					checkOrder(arr);
 				}
 			}

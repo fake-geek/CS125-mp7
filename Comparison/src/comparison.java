@@ -4,7 +4,9 @@ public class comparison {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] arr = create(200);
-		Sort.bubbleSort(arr);
+		//Sort.bubbleSort(arr);
+		//Sort.selectionSort(arr);
+		Sort.insertionSort(arr);
 		printNumbers(arr);
 	}
 	
